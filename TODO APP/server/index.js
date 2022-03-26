@@ -15,16 +15,17 @@ app.use(cors());
 app.use(express.json());
 
 // Setting up Database
-console.log(process.env.MONGO_URI);
 mongoose
-	.connect(process.env.MONGO_URI)
+	.connect(process.env.MONGO_URI, {
+		useNewUrlParser: true,
+	})
 	.then(console.log("Database Connected"))
-	.catch((e) => {
-		console.log(e);
+	.catch((error) => {
+		console.log(error);
 	});
 
 // API Routes
-app.use("/api/todo", todoRoute);
+app.use("/api/todos", todoRoute);
 
 // Basic Route
 app.get("/", (req, res) => {
