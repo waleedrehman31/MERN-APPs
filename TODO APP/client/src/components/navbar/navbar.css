@@ -1,0 +1,27 @@
+.header {
+	background-color: white;
+	height: 5vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.nav-links {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 250px;
+}
+
+.nav-links-li {
+	padding: 5px 10px;
+	margin-right: 5px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.nav-links-li:hover {
+	background-color: black;
+	color: white;
+}

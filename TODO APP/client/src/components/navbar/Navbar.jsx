@@ -3,13 +3,15 @@ import "./navbar.css";
 
 function Navbar() {
 	return (
-		<div>
-			<h1>MERN TODO APP</h1>
-			<ul>
-				<li>All TODO</li>
-				<li>New TODO</li>
-			</ul>
-		</div>
+		<header className="header">
+			<h2 className="logo">MERN TODO APP</h2>
+			<nav>
+				<ul className="nav-links">
+					<li className="nav-links-li">All TODO</li>
+					<li className="nav-links-li">New TODO</li>
+				</ul>
+			</nav>
+		</header>
 	);
 }
 
