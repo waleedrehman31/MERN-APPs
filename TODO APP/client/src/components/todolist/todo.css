@@ -1,0 +1,78 @@
+.container {
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+.card {
+	margin-top: 20px;
+	background-color: white;
+	width: 900px;
+	border-radius: 20px;
+}
+
+.card-title {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	font-weight: bold;
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+
+table {
+	width: 100%;
+	align-items: center;
+	align-content: center;
+}
+
+th {
+	border-bottom: 1px solid lightgray;
+}
+
+td {
+	padding: 10px 0px 5px 0px;
+	text-align: center;
+	border-bottom: 1px solid lightgray;
+}
+
+button {
+	padding: 5px 10px;
+	margin-right: 5px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.complete-button {
+	background-color: green;
+	color: white;
+}
+
+.edit-button {
+	background-color: blue;
+	color: white;
+}
+
+.delete-button {
+	background-color: red;
+	color: white;
+}
+
+.complete-button:hover {
+	background-color: lightgreen;
+	color: black;
+}
+
+.edit-button:hover {
+	background-color: lightblue;
+	color: black;
+}
+
+.delete-button:hover {
+	background-color: tomato;
+	color: black;
+}
