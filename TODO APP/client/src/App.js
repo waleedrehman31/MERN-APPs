@@ -4,12 +4,14 @@ import Todos from "./components/todolist/Todos";
 
 // Import default css
 import "./app.css";
+import TodoForm from "./components/todoform/TodoForm";
 
 function App() {
 	return (
 		<div>
-				<Navbar />
-				<Todos />
+			<Navbar />
+			<Todos />
+			<TodoForm />
 		</div>
 	);
 }
