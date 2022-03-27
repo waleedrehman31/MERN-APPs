@@ -14,7 +14,7 @@ function App() {
 		<div>
 			<Navbar />
 			<Routes>
-				<Route path="/home" element={<Home />} />
+				<Route exact path="/" element={<Home />} />
 				<Route path="/alltodo" element={<Todos />} />
 				<Route path="/newtodo" element={<TodoForm />} />
 			</Routes>
