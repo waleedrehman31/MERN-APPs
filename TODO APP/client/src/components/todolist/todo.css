@@ -37,15 +37,15 @@ td {
 	border-bottom: 1px solid lightgray;
 }
 
-button {
-	padding: 5px 10px;
+.button {
+	padding: 6px 13px;
 	margin-right: 5px;
 	outline: none;
 	border: none;
 	cursor: pointer;
 	border-radius: 5px;
 	font-weight: bold;
-	font-size: 14px;
+	display: inline-block;
 }
 
 .complete-button {
@@ -76,4 +76,15 @@ button {
 .delete-button:hover {
 	background-color: tomato;
 	color: black;
+}
+
+.done-button {
+	background-color: lightgreen;
+	cursor: not-allowed;
+	font-weight: bold;
+	display: inline-block;
+	color: #black;
+	padding: 6px 13px;
+	margin-bottom: 10px;
+	margin-right: 10px;
 }
