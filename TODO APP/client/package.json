@@ -1,5 +1,5 @@
 {
-	"homepage": "https://todo-app.vercel.app",
+	"homepage": "https://todo-app-three-rouge.vercel.app/",
 	"name": "client",
 	"version": "0.1.0",
 	"proxy": "http://localhost:5000",
