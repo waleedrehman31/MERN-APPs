@@ -6,7 +6,7 @@ import "./todoform.css";
 
 // Base URL
 
-const baseURL = process.env.baseURL;
+const baseURL = "https://todo-app-three-rouge.vercel.app/api/todos";
 
 function TodoForm() {
 	const [value, setValue] = useState("");
