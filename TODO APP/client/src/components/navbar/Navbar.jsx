@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+// Import CSS
 import "./navbar.css";
 
 function Navbar() {
@@ -7,8 +10,16 @@ function Navbar() {
 			<h2 className="logo">MERN TODO APP</h2>
 			<nav>
 				<ul className="nav-links">
-					<li className="nav-links-li">All TODO</li>
-					<li className="nav-links-li">New TODO</li>
+					<li>
+						<Link className="nav-links-li" to="/alltodo">
+							All TODO
+						</Link>
+					</li>
+					<li>
+						<Link className="nav-links-li" to="/newtodo">
+							New TODO
+						</Link>
+					</li>
 				</ul>
 			</nav>
 		</header>

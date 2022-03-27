@@ -1,17 +1,22 @@
+import { Routes, Route } from "react-router-dom";
+
 // Import components
 import Navbar from "./components/navbar/Navbar";
 import Todos from "./components/todolist/Todos";
+import TodoForm from "./components/todoform/TodoForm";
 
 // Import default css
 import "./app.css";
-import TodoForm from "./components/todoform/TodoForm";
 
 function App() {
 	return (
 		<div>
 			<Navbar />
-			<Todos />
-			<TodoForm />
+			<Routes>
+				<Route path="/" element={<Todos />} />
+				<Route path="/alltodo" element={<Todos />} />
+				<Route path="/newtodo" element={<TodoForm />} />
+			</Routes>
 		</div>
 	);
 }
