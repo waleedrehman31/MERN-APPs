@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/home/static/css/main.b9f070f0.css",
-    "main.js": "/home/static/js/main.7374c7ff.js",
+    "main.js": "/home/static/js/main.a7d36916.js",
     "static/media/home-mern-stack.jpg": "/home/static/media/home-mern-stack.ba7aaddb842453361027.jpg",
     "index.html": "/home/index.html",
     "main.b9f070f0.css.map": "/home/static/css/main.b9f070f0.css.map",
-    "main.7374c7ff.js.map": "/home/static/js/main.7374c7ff.js.map"
+    "main.a7d36916.js.map": "/home/static/js/main.a7d36916.js.map"
   },
   "entrypoints": [
     "static/css/main.b9f070f0.css",
-    "static/js/main.7374c7ff.js"
+    "static/js/main.a7d36916.js"
   ]
 }
