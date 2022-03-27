@@ -5,7 +5,7 @@ import App from "./App";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<BrowserRouter basename="https://todo-app-three-rouge.vercel.app/">
+		<BrowserRouter basename="/">
 			<App />
 		</BrowserRouter>
 	</React.StrictMode>,
