@@ -8,7 +8,7 @@ function Navbar() {
 	return (
 		<header className="header">
 			<h2 className="logo">
-				<Link className="logo" to={"/"}>
+				<Link className="logo" to={"/home"}>
 					MERN TODO APP
 				</Link>
 			</h2>
