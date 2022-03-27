@@ -4,8 +4,8 @@ import axios from "axios";
 // Import css
 import "./todo.css";
 
-// Base URl
-const baseURL = "http://localhost:5000/api/todos";
+// Base URL
+const baseURL = process.env.baseURL;
 
 function Todos() {
 	const [todos, setTodos] = useState([]);

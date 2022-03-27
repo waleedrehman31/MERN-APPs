@@ -5,7 +5,7 @@ import axios from "axios";
 import "./todoform.css";
 
 // Base URl
-const baseURL = "http://localhost:5000/api/todos";
+const baseURL = process.env.baseURL;
 
 function TodoForm() {
 	const [value, setValue] = useState("");
