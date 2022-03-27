@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 // Import CSS
 import "./navbar.css";
@@ -7,7 +7,11 @@ import "./navbar.css";
 function Navbar() {
 	return (
 		<header className="header">
-			<h2 className="logo">MERN TODO APP</h2>
+			<h2 className="logo">
+				<Link className="logo" to={"/"}>
+					MERN TODO APP
+				</Link>
+			</h2>
 			<nav>
 				<ul className="nav-links">
 					<li>
@@ -22,6 +26,7 @@ function Navbar() {
 					</li>
 				</ul>
 			</nav>
+			<Outlet />
 		</header>
 	);
 }
