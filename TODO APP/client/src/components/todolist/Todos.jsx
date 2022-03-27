@@ -3,10 +3,8 @@ import axios from "axios";
 
 // Import css
 import "./todo.css";
-import dontenv from "dotenv";
 
 // Base URL
-dontenv.config();
 const baseURL = process.env.baseURL;
 
 function Todos() {
