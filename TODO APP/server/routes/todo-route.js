@@ -1,20 +1,25 @@
 const express = require("express");
+const jwt = require("jsonwebtoken");
 
 //Import middleware
 const auth = require("../middleware/verify-token");
 
 //Import Model
 const Todo = require("../models/todo-model");
+const User = require("../models/user-model");
 
 // Router Middleware
 const Router = express.Router();
 
 // Get All TODO
 Router.get("/", auth, async (req, res) => {
+	const token = req.header("auth-token");
+	const decoded = jwt.verify(token, process.env.JWT_SECRET);
+	const userId = decoded._id;
+
 	try {
-		const todos = await Todo.find();
-		res.send(todos);
-		res.status(200);
+		const todos = await Todo.find({ userID: userId });
+		res.status(200).send(todos);
 	} catch (error) {
 		res.send(error);
 	}
@@ -22,9 +27,14 @@ Router.get("/", auth, async (req, res) => {
 
 // Create New TODO
 Router.post("/", auth, async (req, res) => {
+	const token = req.header("auth-token");
+	const decoded = jwt.verify(token, process.env.JWT_SECRET);
+	const userId = decoded._id;
+
 	const newTodo = new Todo({
 		todo: req.body.todo,
 		isCompelte: req.body.isCompelte,
+		userID: userId,
 	});
 	try {
 		await newTodo.save();
