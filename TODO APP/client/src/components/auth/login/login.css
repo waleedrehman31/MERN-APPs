@@ -1,0 +1,62 @@
+.container {
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 10px 25px;
+}
+
+.card {
+	margin-top: 20px;
+	background-color: white;
+	border-radius: 20px;
+}
+
+.card-title {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	font-weight: bold;
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+form label {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+form input {
+	padding: 10px;
+	font-size: 16px;
+	outline: none;
+	margin: 10px 0px;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
+button {
+	padding: 5px 10px;
+	margin-right: 5px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.login-button {
+	font-size: 16px;
+	padding: 10px 0px;
+	color: white;
+	background-color: green;
+}
+
+.login-button:hover {
+	background-color: lightgreen;
+	color: black;
+}
