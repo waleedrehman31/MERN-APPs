@@ -1,5 +1,8 @@
 const express = require("express");
 
+//Import middleware
+const auth = require("../middleware/verify-token");
+
 //Import Model
 const Todo = require("../models/todo-model");
 
@@ -7,7 +10,7 @@ const Todo = require("../models/todo-model");
 const Router = express.Router();
 
 // Get All TODO
-Router.get("/", async (req, res) => {
+Router.get("/", auth, async (req, res) => {
 	try {
 		const todos = await Todo.find();
 		res.send(todos);
@@ -18,7 +21,7 @@ Router.get("/", async (req, res) => {
 });
 
 // Create New TODO
-Router.post("/", async (req, res) => {
+Router.post("/", auth, async (req, res) => {
 	const newTodo = new Todo({
 		todo: req.body.todo,
 		isCompelte: req.body.isCompelte,
@@ -34,7 +37,7 @@ Router.post("/", async (req, res) => {
 });
 
 // Update One TODO by ID
-Router.put("/:id", async (req, res) => {
+Router.put("/:id", auth, async (req, res) => {
 	try {
 		const todoUpdate = await Todo.findByIdAndUpdate(req.params.id, {
 			todo: req.body.todo,
@@ -48,7 +51,7 @@ Router.put("/:id", async (req, res) => {
 });
 
 // Delete Todo by ID
-Router.delete("/:id", async (req, res) => {
+Router.delete("/:id", auth, async (req, res) => {
 	try {
 		await Todo.findByIdAndDelete(req.params.id);
 		res.send("Todo Deleted Success Fully");
