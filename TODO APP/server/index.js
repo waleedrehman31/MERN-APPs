@@ -4,8 +4,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
 
-// Export Routes
+// Import Routes
 const todoRoute = require("./routes/todo-route");
+const userRoute = require("./routes/user-route");
 
 // Express App Initialization
 const app = express();
@@ -27,6 +28,7 @@ mongoose
 
 // API Routes
 app.use("/api/todos", todoRoute);
+app.use("/api/user", userRoute);
 
 // Basic Route
 app.get("/", (req, res) => {
@@ -42,7 +44,7 @@ app.listen(PORT, () => {
 
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "../", "client", "build")));
-	app.get("/*", (req, res) => {
+	app.get("*", (req, res) => {
 		res.sendFile(path.join(__dirname, "../", "client", "build", "index.html"));
 	});
 }
