@@ -8,9 +8,7 @@ function Navbar() {
 	return (
 		<header className="header">
 			<h2 className="logo">
-				<Link className="logo" to={"/"}>
-					MERN TODO APP
-				</Link>
+				<Link to={"/"}>MERN TODO APP</Link>
 			</h2>
 			<nav>
 				<ul className="nav-links">
@@ -20,8 +18,13 @@ function Navbar() {
 						</Link>
 					</li>
 					<li>
-						<Link className="nav-links-li" to="/newtodo">
-							New TODO
+						<Link className="nav-links-li" to="/login">
+							Login
+						</Link>
+					</li>
+					<li>
+						<Link className="nav-links-li" to="/register">
+							Register
 						</Link>
 					</li>
 				</ul>

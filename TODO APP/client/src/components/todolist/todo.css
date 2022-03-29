@@ -1,30 +1,14 @@
-.container {
-	max-width: 1140px;
-	margin: 0 auto;
-	padding: 10px;
-}
-
-.card {
-	margin-top: 20px;
-	background-color: white;
-	width: 900px;
-	border-radius: 20px;
-}
-
-.card-title {
+.table-center {
 	display: flex;
 	justify-content: center;
-	width: 100%;
-	font-weight: bold;
-	font-size: 25px;
-	margin-bottom: 20px;
+	align-items: center;
 }
 
 table {
-	width: 100%;
 	align-items: center;
 	align-content: center;
 	margin-bottom: 10px;
+	width: 100%;
 }
 
 th {
@@ -37,28 +21,20 @@ td {
 	border-bottom: 1px solid lightgray;
 }
 
-.button {
-	padding: 6px 13px;
-	margin-right: 5px;
-	outline: none;
-	border: none;
-	cursor: pointer;
-	border-radius: 5px;
-	font-weight: bold;
-	display: inline-block;
-}
-
 .complete-button {
+	margin: 0px 15px;
 	background-color: green;
 	color: white;
 }
 
 .edit-button {
+	margin: 0px 5px;
 	background-color: blue;
 	color: white;
 }
 
 .delete-button {
+	margin: 0px 5px;
 	background-color: red;
 	color: white;
 }
@@ -87,4 +63,34 @@ td {
 	padding: 6px 13px;
 	margin-bottom: 10px;
 	margin-right: 10px;
+}
+
+.add-todo-button {
+	padding: 5px 15px;
+	margin-right: 5px;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: black;
+	color: white;
+	margin-bottom: 20px;
+}
+
+.add-todo-button:hover {
+	background-color: rgb(194, 194, 194);
+	color: black;
+}
+
+@media only screen and (max-width: 600px) {
+	.complete-button,
+	.edit-button,
+	.delete-button {
+		margin: 5px;
+	}
+
+	table {
+		align-items: center;
+		align-content: center;
+		margin-bottom: 10px;
+		width: 100%;
+	}
 }

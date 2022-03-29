@@ -1,17 +1,16 @@
 .header {
 	background-color: white;
-	height: 5vh;
-	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	padding: 10px 0px;
 }
 
 .nav-links {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 250px;
+	margin: 0px 20px;
 }
 
 .nav-links-li {
@@ -24,4 +23,34 @@
 .nav-links-li:hover {
 	background-color: black;
 	color: white;
+}
+
+@media only screen and (max-width: 600px) {
+	.header {
+		flex-direction: column;
+	}
+
+	.logo {
+		marign-bottom: 5px;
+	}
+
+	.nav-links-li {
+		background-color: black;
+		color: white;
+	}
+
+	.nav-links-li:hover {
+		background-color: white;
+		color: black;
+	}
+
+	nav {
+		margin: 15px 0px;
+	}
+
+	.nav-links {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 }
