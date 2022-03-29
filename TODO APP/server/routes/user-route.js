@@ -1,5 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const Routes = express.Router();
 
@@ -31,17 +32,33 @@ Routes.post("/register", async (req, res) => {
 		email: req.body.email,
 		password: hashPassword,
 	});
-	
+
 	try {
 		const newUser = await user.save();
-		res.send(newUser);
+		res.send({ user: user._id });
 	} catch (error) {
 		res.status(500).send(error);
 	}
 });
 
-Routes.post("/login", (req, res) => {
-	res.send("This is login route");
+Routes.post("/login", async (req, res) => {
+	const { error } = loginValidation(req.body);
+	if (error) {
+		return res.status(400).send(error.details[0].message);
+	}
+
+	const user = await User.findOne({ email: req.body.email });
+	if (!user) {
+		return res.status(400).send("Email Doesn't Exist");
+	}
+
+	const validPassword = await bcrypt.compare(req.body.password, user.password);
+	if (!validPassword) {
+		return res.status(400).send("Password Is Invalid");
+	}
+
+	const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
+	res.header("auth-token", token).status(200).send(token);
 });
 
 module.exports = Routes;
