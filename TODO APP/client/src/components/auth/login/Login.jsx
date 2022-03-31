@@ -71,7 +71,7 @@ function Login() {
 						type="submit"
 						name="submit"
 						id="submit"
-						value="Login"
+						value="Register"
 					/>
 				</form>
 				<p className="card-paragraph">

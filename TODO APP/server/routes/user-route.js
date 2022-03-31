@@ -42,23 +42,30 @@ Routes.post("/register", async (req, res) => {
 });
 
 Routes.post("/login", async (req, res) => {
-	const { error } = loginValidation(req.body);
-	if (error) {
-		return res.status(400).send(error.details[0].message);
-	}
+	try {
+		const { error } = loginValidation(req.body);
+		if (error) {
+			return res.status(400).send(error.details[0].message);
+		}
 
-	const user = await User.findOne({ email: req.body.email });
-	if (!user) {
-		return res.status(400).send("Email Doesn't Exist");
-	}
+		const user = await User.findOne({ email: req.body.email });
+		if (!user) {
+			return res.status(400).send("Email Doesn't Exist");
+		}
 
-	const validPassword = await bcrypt.compare(req.body.password, user.password);
-	if (!validPassword) {
-		return res.status(400).send("Password Is Invalid");
-	}
+		const validPassword = await bcrypt.compare(
+			req.body.password,
+			user.password,
+		);
+		if (!validPassword) {
+			return res.status(400).send("Password Is Invalid");
+		}
 
-	const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
-	res.header("auth-token", token).status(200).send(token);
+		const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
+		res.header("auth-token", token).status(200).send(token);
+	} catch (error) {
+		console.log(error);
+	}
 });
 
 module.exports = Routes;
