@@ -1,21 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 import "./login.css";
 
+const baseURL = "http://localhost:5000/api/user/login";
+
 function Login() {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	function emailHandleChange(event) {
+		setEmail(event.target.value);
+	}
+	function passwordHandleChange(event) {
+		setPassword(event.target.value);
+	}
+
+	async function handleSubmit(event) {
+		event.preventDefault();
+		console.log(email);
+		console.log(password);
+		try {
+			await axios
+				.post(
+					baseURL,
+					{
+						email: email,
+						password: password,
+					},
+					{
+						headers: {
+							"Content-Type": "application/json",
+						},
+					},
+				)
+				.then((response) => {
+					localStorage.setItem('userToken', response.data);
+					console.log(response.data);
+				});
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
 	return (
 		<div className="body-background container">
 			<div className="card container">
 				<div className="card-title">Login</div>
-				<form>
+				<form onSubmit={handleSubmit}>
 					<label htmlFor="email">Email</label>
 					<input
 						type="email"
 						name="email"
 						id="email"
 						// value={value}
-						// onChange={handleChange}
+						onChange={emailHandleChange}
 						required
 					/>
 					<label htmlFor="password">Password</label>
@@ -24,7 +64,7 @@ function Login() {
 						name="password"
 						id="password"
 						// value={value}
-						// onChange={handleChange}
+						onChange={passwordHandleChange}
 						required
 					/>
 					<input

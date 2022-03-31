@@ -6,7 +6,7 @@ import axios from "axios";
 import "./todo.css";
 
 // Base URL
-const baseURL = "https://todo-app-three-rouge.vercel.app/api/todos";
+const baseURL = "http://localhost:5000/api/todos";
 
 function Todos() {
 	const [todos, setTodos] = useState([]);

@@ -1,21 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 import "./register.css";
 
+const baseURL = "http://localhost:5000/api/user/register";
+
 function Register() {
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	function nameHandleChange(event) {
+		setName(event.target.value);
+	}
+	function emailHandleChange(event) {
+		setEmail(event.target.value);
+	}
+	function passwordHandleChange(event) {
+		setPassword(event.target.value);
+	}
+
+	async function handleSubmit(event) {
+		event.preventDefault();
+		console.log(name);
+		console.log(email);
+		console.log(password);
+		try {
+			await axios
+				.post(
+					baseURL,
+					{
+						name: name,
+						email: email,
+						password: password,
+					},
+					{
+						headers: {
+							"Content-Type": "application/json",
+						},
+					},
+				)
+				.then((response) => {
+					console.log(response);
+				});
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
 	return (
 		<div className="body-background container">
 			<div className="card container">
 				<div className="card-title">Register</div>
-				<form>
+				<form onSubmit={handleSubmit}>
 					<label htmlFor="name">Name</label>
 					<input
 						type="text"
 						name="name"
 						id="name"
-						// value={value}
-						// onChange={handleChange}
+						// value={name}
+						onChange={nameHandleChange}
 						required
 					/>
 					<label htmlFor="email">Email</label>
@@ -23,8 +68,8 @@ function Register() {
 						type="email"
 						name="email"
 						id="email"
-						// value={value}
-						// onChange={handleChange}
+						// value={email}
+						onChange={emailHandleChange}
 						required
 					/>
 					<label htmlFor="password">Password</label>
@@ -32,8 +77,8 @@ function Register() {
 						type="password"
 						name="password"
 						id="password"
-						// value={value}
-						// onChange={handleChange}
+						// value={password}
+						onChange={passwordHandleChange}
 						required
 					/>
 					<input
@@ -47,7 +92,6 @@ function Register() {
 				<p className="card-paragraph">
 					<span>NOTE</span> If you have account an
 					<span>
-						{" "}
 						<Link className="auth-link" to="/login">
 							Login
 						</Link>
