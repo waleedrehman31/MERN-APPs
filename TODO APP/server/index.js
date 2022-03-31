@@ -31,9 +31,9 @@ app.use("/api/todos", todoRoute);
 app.use("/api/user", userRoute);
 
 // Basic Route
-app.get("/", (req, res) => {
-	res.send("This is an API Request");
-});
+// app.get("/", (req, res) => {
+// 	res.send("This is an API Request");
+// });
 
 // Server and PORT setting up
 let PORT = process.env.PORT || 5000;

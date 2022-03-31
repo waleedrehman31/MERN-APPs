@@ -5,6 +5,11 @@ import { Link, Outlet } from "react-router-dom";
 import "./navbar.css";
 
 function Navbar() {
+	function handleLogout() {
+		localStorage.removeItem("userToken");
+	}
+	let token = localStorage.getItem("userToken");
+
 	return (
 		<header className="header">
 			<h2 className="logo">
@@ -17,16 +22,26 @@ function Navbar() {
 							All TODO
 						</Link>
 					</li>
-					<li>
-						<Link className="nav-links-li" to="/login">
-							Login
-						</Link>
-					</li>
-					<li>
-						<Link className="nav-links-li" to="/register">
-							Register
-						</Link>
-					</li>
+					{token ? (
+						<li>
+							<button className="nav-links-li" onClick={handleLogout}>
+								Logout
+							</button>
+						</li>
+					) : (
+						<>
+							<li>
+								<Link className="nav-links-li" to="/login">
+									Login
+								</Link>
+							</li>
+							<li>
+								<Link className="nav-links-li" to="/register">
+									Register
+								</Link>
+							</li>
+						</>
+					)}
 				</ul>
 			</nav>
 			<Outlet />
