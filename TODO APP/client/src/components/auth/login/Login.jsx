@@ -4,8 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import "./login.css";
 
-const baseURL =
-	"https://todo-3245m4l4i-waleedrehman31.vercel.app/api/user/login";
+const baseURL = "https://todo-app-waleedrehman31.vercel.app/api/user/login";
 
 function Login() {
 	let navigate = useNavigate();
@@ -21,8 +20,6 @@ function Login() {
 
 	async function handleSubmit(event) {
 		event.preventDefault();
-		console.log(email);
-		console.log(password);
 		try {
 			await axios
 				.post(
@@ -40,7 +37,6 @@ function Login() {
 				.then((response) => {
 					localStorage.setItem('userToken', response.data);
 					navigate("/alltodo");
-					console.log(response.data);
 				});
 		} catch (error) {
 			console.log(error);

@@ -6,7 +6,7 @@ import axios from "axios";
 import "./todo.css";
 
 // Base URL
-const baseURL = "https://todo-3245m4l4i-waleedrehman31.vercel.app/api/todos";
+const baseURL = "https://todo-app-waleedrehman31.vercel.app/api/todos";
 
 function Todos() {
 	const [todos, setTodos] = useState([]);

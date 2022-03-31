@@ -4,8 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import "./register.css";
 
-const baseURL =
-	"https://todo-3245m4l4i-waleedrehman31.vercel.app/api/user/register";
+const baseURL = "https://todo-app-waleedrehman31.vercel.app/api/user/register";
 
 function Register() {
 	let navigate = useNavigate();
@@ -25,9 +24,6 @@ function Register() {
 
 	async function handleSubmit(event) {
 		event.preventDefault();
-		console.log(name);
-		console.log(email);
-		console.log(password);
 		try {
 			await axios
 				.post(
@@ -44,7 +40,6 @@ function Register() {
 					},
 				)
 				.then((response) => {
-					console.log(response);
 					navigate("/login");
 				});
 		} catch (error) {
