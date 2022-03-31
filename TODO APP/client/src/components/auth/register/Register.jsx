@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import "./register.css";
 
-const baseURL = "http://localhost:5000/api/user/register";
+const baseURL =
+	"https://todo-3245m4l4i-waleedrehman31.vercel.app/api/user/register";
 
 function Register() {
 	let navigate = useNavigate();
