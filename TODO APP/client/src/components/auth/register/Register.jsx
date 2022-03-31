@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./register.css";
 
 const baseURL = "http://localhost:5000/api/user/register";
 
 function Register() {
+	let navigate = useNavigate();
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -43,6 +44,7 @@ function Register() {
 				)
 				.then((response) => {
 					console.log(response);
+					navigate("/login");
 				});
 		} catch (error) {
 			console.log(error);

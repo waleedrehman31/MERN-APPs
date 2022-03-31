@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {  useNavigate } from "react-router-dom";
 
 //Import CSS
 import "./todoform.css";
@@ -9,7 +10,10 @@ import "./todoform.css";
 const baseURL = "http://localhost:5000/api/todos";
 
 function TodoForm() {
+	let navigate = useNavigate();
 	const [value, setValue] = useState("");
+
+	const authToken = localStorage.getItem("userToken");
 
 	function handleChange(event) {
 		setValue(event.target.value);
@@ -27,11 +31,13 @@ function TodoForm() {
 					{
 						headers: {
 							"Content-Type": "application/json",
+							"auth-token": authToken,
 						},
 					},
 				)
 				.then(() => {
 					alert("Todo Added SuccessFully");
+					navigate("/alltodo");
 					setValue("");
 				});
 		} catch (error) {

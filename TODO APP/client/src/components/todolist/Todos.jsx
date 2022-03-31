@@ -11,16 +11,22 @@ const baseURL = "http://localhost:5000/api/todos";
 function Todos() {
 	const [todos, setTodos] = useState([]);
 
+	const authToken = localStorage.getItem("userToken");
+
 	useEffect(() => {
 		axios
-			.get(baseURL)
+			.get(baseURL, {
+				headers: {
+					"auth-token": authToken,
+				},
+			})
 			.then((response) => {
 				setTodos(response.data);
 			})
 			.catch((error) => {
 				console.log(error);
 			});
-	}, [todos]);
+	}, [todos, authToken]);
 
 	if (!todos) {
 		return "no todo available right now";

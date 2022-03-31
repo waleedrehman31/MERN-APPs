@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./login.css";
 
 const baseURL = "http://localhost:5000/api/user/login";
 
 function Login() {
+	let navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -37,6 +38,7 @@ function Login() {
 				)
 				.then((response) => {
 					localStorage.setItem('userToken', response.data);
+					navigate("/alltodo");
 					console.log(response.data);
 				});
 		} catch (error) {
