@@ -88,7 +88,7 @@ function Register() {
 					/>
 				</form>
 				<p className="card-paragraph">
-					<span>NOTE</span> If you have account an
+					<span>NOTE</span> If you have account an{" "}
 					<span>
 						<Link className="auth-link" to="/login">
 							Login
