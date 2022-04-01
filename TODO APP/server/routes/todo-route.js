@@ -47,7 +47,7 @@ Router.post("/", auth, async (req, res) => {
 });
 
 // Update One TODO by ID
-Router.put("/:id", auth, async (req, res) => {
+Router.put("/:id", async (req, res) => {
 	try {
 		const todoUpdate = await Todo.findByIdAndUpdate(req.params.id, {
 			todo: req.body.todo,
@@ -61,7 +61,7 @@ Router.put("/:id", auth, async (req, res) => {
 });
 
 // Delete Todo by ID
-Router.delete("/:id", auth, async (req, res) => {
+Router.delete("/:id",  async (req, res) => {
 	try {
 		await Todo.findByIdAndDelete(req.params.id);
 		res.send("Todo Deleted Success Fully");
